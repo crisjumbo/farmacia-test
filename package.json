@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest --watch",
     "lint": "next lint"
   },
   "dependencies": {
@@ -19,10 +20,17 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
+    "babel-jest": "^27.3.1",
     "eslint": "7",
     "eslint-config-next": "12.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
+    "msw": "^0.35.0",
+    "react-test-renderer": "^17.0.2",
     "typescript": "4.4.4"
   }
 }

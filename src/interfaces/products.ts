@@ -26,6 +26,8 @@ export interface InitialState {
     name?:string;
     priceRangeFrom?: number;
     priceRangeTo?: number;
-    ratingRangeFrom?: number;
-    ratingRangeTo?:number; 
+    rateRangeFrom?: number;
+    rateRangeTo?:number; 
+    switch?: boolean;
+    urlFetch?: string;
 }

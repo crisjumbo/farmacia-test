@@ -8,9 +8,10 @@ import { Select } from '@chakra-ui/select'
 import { useAppContext } from '../hooks/useAppContext'
 
 export const SearchForm= () => {
-  const {state, searchWord}:any = useAppContext();
+  const {state, searchWord, switcher}:any = useAppContext();
     return (
-      <Box boxShadow="0 0 3px gray" w="25rem" display="flex" mb="1rem">
+    <Box w="24rem" mx="10px">
+      <Box boxShadow="0 0 3px gray" display="flex" mb="1rem">
           <Input value={state.name} onChange={(e) => searchWord({name: "name", value: e.currentTarget.value})} placeholder="Search"/>
           <Select value={state.brand} onChange={(e) => searchWord({name: "brand", value: e.currentTarget.value})}>
           {
@@ -26,7 +27,8 @@ export const SearchForm= () => {
             ))
           }
           </Select>
-          <Button><BsSearch/></Button>
       </Box>
+      <Button w="100%" onClick={() => switcher()}><BsSearch/></Button>
+    </Box>
     )
 }

@@ -6,6 +6,7 @@ export const initialState: InitialState = {
     name: '',
     priceRangeFrom: 0,
     priceRangeTo: 0,
-    ratingRangeFrom: 0,
-    ratingRangeTo: 0
+    rateRangeFrom: 0,
+    rateRangeTo: 0,
+    urlFetch: process.env.NEXT_PUBLIC_ENDPOINT || '',
 }

@@ -4,7 +4,7 @@ import {Image} from '@chakra-ui/image'
 import { Product } from '../interfaces/products';
 import {BsStar} from 'react-icons/bs'
 
-export const  Item = ({ image_link, name, price, rating}:Product) => {
+const  Item = ({ image_link, name, price, rating}:Product) => {
     return (
     <Box h="20rem" display="grid" gridTemplateRows="70% 30%" cursor="pointer">
       <Box>
@@ -20,3 +20,5 @@ export const  Item = ({ image_link, name, price, rating}:Product) => {
     </Box>
     )
 }
+
+export default Item;

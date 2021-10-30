@@ -12,16 +12,16 @@ export const RangeForm = ({type}:{type:string}) => {
         if (type == "price")
             return searchPriceRange(_payload);
     }
-    const handleFrom = (type:string) => {
-        if (type == "rate")
+    const handleFrom = () => {
+        if (type === "rate")
             return state.rateRangeFrom;
-        if (type == "price")
+        if (type === "price")
             return state.priceRangeFrom;
     }
     const handleTo = (type:string) => {
-        if (type == "rate")
+        if (type === "rate")
             return state.rateRangeTo;
-        if (type == "price")
+        if (type === "price")
             return state.priceRangeTo;
     }
     return (
@@ -31,7 +31,7 @@ export const RangeForm = ({type}:{type:string}) => {
               type="number"
               name="From"
               placeholder="From"
-              value={handleFrom(type)}
+              value={handleFrom()}
               onChange={(e) => handleFunction({from:parseFloat(e.currentTarget.value), to:0})}
           />
           <Input

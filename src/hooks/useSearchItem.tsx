@@ -6,14 +6,13 @@ export const useSearchItem = (data:Data) => {
     const [filteredItems, setFilteredItem] = useState(data);
     
     useMemo(() => {
-        const filArr = data.filter(item => {
+        const wordFilterArr: Data = data.filter(item => {
             if (item.name?.toLowerCase().includes(query.toLowerCase()) ||
                 item.brand?.toLowerCase().includes(query.toLowerCase()) ||
                 item.product_type?.toLowerCase().includes(query.toLowerCase()))
                 return item;
         })
-        
-        setFilteredItem(filArr);
-    }, [data, query])
+        setFilteredItem(wordFilterArr);
+    }, [data, query]);
     return {query, filteredItems, setQuery};
 }

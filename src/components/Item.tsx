@@ -4,11 +4,11 @@ import {Image} from '@chakra-ui/image'
 import { Product } from '../interfaces/products';
 import {BsStar} from 'react-icons/bs'
 
-export const  ProductCard = ({ image_link, name, price, rating}:Product) => {
+export const  Item = ({ image_link, name, price, rating}:Product) => {
     return (
     <Box h="20rem" display="grid" gridTemplateRows="70% 30%" cursor="pointer">
       <Box>
-        <Image src={image_link} alt={name} h="100%" w="100%" objectFit="cover"/>
+        <Image src={'hola'} alt={name} h="100%" w="100%" objectFit="cover"/>
       </Box>
       <Box px="10px" pos="relative">
         <Heading pos="relative" h="3.2rem" top="5px" as="h3" fontSize="20px" mb="5px">{name}</Heading>

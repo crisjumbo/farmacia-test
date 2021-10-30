@@ -3,16 +3,29 @@ export interface Product {
   id?:number;
   image_link?:string;
   name?:string;
-  price?:string;
-  rating?:string;
+  price?: number | string;
+  rating?:number | string;
   brand?:string;
   product_type?:string;
 }
-
-export type Data = Product[]; 
 
 export interface UseSearchItem {
  query?:string;
  filteredItems?: Product[];
  setQuery?:()=> string;
+}
+
+export interface RangeNum {
+  from?: number;
+  to?: number;
+}
+
+export interface InitialState {
+    brand?: string;
+    productType?: string;
+    name?:string;
+    priceRangeFrom?: number;
+    priceRangeTo?: number;
+    ratingRangeFrom?: number;
+    ratingRangeTo?:number; 
 }

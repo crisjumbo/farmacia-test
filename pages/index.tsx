@@ -6,7 +6,6 @@ import dynamic from 'next/dynamic'
 const GalleryItems = dynamic(() => import('../src/components/GalleryItems'))
 
 const Home = () => {
-
   return (
   <Box display="flex" alignItems="center" flexDir="column" w="100%" maxW="100vw" minH="100vh" px="2rem" pt="1rem  ">
     <Box display="flex" justifyContent="space-evenly">

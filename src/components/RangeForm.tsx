@@ -4,43 +4,62 @@ import { FormLabel } from '@chakra-ui/form-control'
 import { Input } from '@chakra-ui/input'
 import { useAppContext } from '../hooks/useAppContext'
 
-export const RangeForm = ({type}:{type:string}) => {
-    const {state, searchPriceRange, searchRateRange }:any = useAppContext();
-    const handleFunction = (_payload: {from:number, to:number}) => {
-        if (type == "rate")
-            return searchRateRange(_payload);
-        if (type == "price")
-            return searchPriceRange(_payload);
-    }
-    const handleFrom = () => {
-        if (type === "rate")
-            return state.rateRangeFrom;
-        if (type === "price")
-            return state.priceRangeFrom;
-    }
-    const handleTo = (type:string) => {
-        if (type === "rate")
-            return state.rateRangeTo;
-        if (type === "price")
-            return state.priceRangeTo;
-    }
+const PriceRange = ({priceFrom, priceTo, searchPriceRange }:any) => {
     return (
       <Box>
-          <FormLabel htmlFor="name">Filter:</FormLabel>
+          <FormLabel htmlFor="name">Price Range:</FormLabel>
           <Input
               type="number"
-              name="From"
-              placeholder="From"
-              value={handleFrom()}
-              onChange={(e) => handleFunction({from:parseFloat(e.currentTarget.value), to:0})}
+              name="priceFrom"
+              placeholder="Price from..."
+              value={priceFrom}
+              onChange={(e) => searchPriceRange({from: e.currentTarget.value, to: priceTo})}
           />
           <Input
               type="number"
-              name="To"
+              name="priceTo"
               placeholder="To"
-              value={handleTo(type)}
-              onChange={(e) => handleFunction({from:0,to:parseFloat(e.currentTarget.value)})}
+              value={priceTo}
+              onChange={(e) => searchPriceRange({from: priceFrom, to: e.currentTarget.value})}
           />
       </Box>
+    )
+}
+
+const RateRange = ({rateFrom, rateTo, searchRateRange }:any) => {
+    return (
+      <Box>
+          <FormLabel htmlFor="name">Rate Range:</FormLabel>
+          <Input
+              type="number"
+              name="rateFrom"
+              placeholder="Rate from..."
+              value={rateFrom}
+              onChange={(e) => searchRateRange({from: e.currentTarget.value, to: rateTo})}
+          />
+          <Input
+              type="number"
+              name="rateTo"
+              placeholder="Rate to..."
+              value={rateTo}
+              onChange={(e) => searchRateRange({from: rateFrom, to: e.currentTarget.value})}
+          />
+      </Box>
+    )
+}
+
+export const RangeForm = ({type}:{type:string}) => {
+    const {state, searchPriceRange, searchRateRange }:any = useAppContext();
+    return (
+    <>
+    {
+        type === "rate" &&
+        <RateRange rateFrom={state.rateRangeFrom} rateTo={state.rateRangeTo} searchRateRange={searchRateRange} />
+    }
+    {
+        type == "price" &&
+        <PriceRange priceFrom={state.priceRangeFrom} priceTo={state.priceRangeTo} searchPriceRange={searchPriceRange} />
+    }
+    </>
     )
 }

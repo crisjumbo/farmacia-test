@@ -8,8 +8,9 @@ export const useInitialState = () => {
     const searchWord = (_payload: {name:string, value: string}) => {
         setState({
             ...state,
-            [`${_payload.name}`]: _payload.value
+            [`${_payload.name}`]: _payload.value,
         })
+        console.log(_payload.value);
     }
     
     const searchPriceRange = (_payload: RangeNum) => {
@@ -28,23 +29,37 @@ export const useInitialState = () => {
         })
     }
     
-    const switcher = () => {
+    const urlMaker = () => {
         const varArr = ['name', 'brand', 'product_type', 'price_greater_than', 'price_less_than', 'rating_greater_than', 'rating_less_than'];
         const valArr = [state.name, state.brand, state.productType, state.priceRangeFrom, state.priceRangeTo, state.rateRangeFrom, state.rateRangeTo]
-        const urlFetch = process.env.NEXT_PUBLIC_ENDPOINT || '';
+        let urlFetch = process.env.NEXT_PUBLIC_ENDPOINT || '';
         let i = 0;
         let flag = 1;
         while (i < valArr.length) {
             if (valArr[i] && flag)
-                urlFetch.concat(`?${varArr[i]}=${valArr[i]}`);
+                {
+                urlFetch = urlFetch.concat(`?${varArr[i]}=${valArr[i]?.toString()}`);
+                flag = 0;
+                console.log(urlFetch)
+                }
             else if (valArr[i] && !flag)
-                urlFetch.concat(`&${varArr[i]}=${valArr[i]}`);
+                urlFetch = urlFetch.concat(`&${varArr[i]}=${valArr[i]}`);
             i++;
         }
-        setState({
-            ...state,
-            urlFetch,
-        })
+        return (urlFetch);
+    }
+    
+    const switcher = async() => {
+        try {
+            const urlFetch:string = await urlMaker();
+            console.log(urlFetch);
+            await setState({
+                ...state,
+                urlFetch,
+            })
+        } catch(err) {
+            console.log('Error fetching new Url')
+        }
     }
     
     return {
@@ -53,5 +68,6 @@ export const useInitialState = () => {
         searchPriceRange,
         searchRateRange,
         switcher,
+        setState,
     }
 }

@@ -15,15 +15,17 @@ const GalleryItems= () => {
        const res = await fetch(state.urlFetch);
        const items = await res.json();
        setItemsArr(items);
+       console.log(state.urlFetch);
      } catch(err) {
        console.log('An Error happened fetching the data');
      }
     })()
   }, [state.urlFetch])
+  console.log(itemsArr.length);
   return (
     <Box bg="pink" gap={3} display="grid" gridTemplateColumns="repeat(3, 1fr)">
     {
-      itemsArr 
+      itemsArr.length != 0 
       ?itemsArr?.map((product: Product) => (
       <Box key={product.id} >
         <Item {...product}/>
@@ -31,6 +33,7 @@ const GalleryItems= () => {
       ))
       : <Box><Text>Loading...</Text></Box>
     }
+    {console.log('DONE MOUNTING')}
     </Box>
   )
 }

@@ -38,11 +38,13 @@ const Product= ({itemInfo}:any) => {
                     <Text>{itemInfo.description}</Text>
                 </Box>
                 <Text my="1rem">
+                    <Text as="span" fontWeight="bold">Price:</Text><br/>
                     <Text as="span">{itemInfo.currency}</Text>
                     <Text as="span">&nbsp;{itemInfo.price}&nbsp;</Text>
                     <Text as="span">{itemInfo.price_sign}</Text>
                 </Text>
-                <HStack>
+                <Text fontWeight="bold"mb="5px">Colors:</Text>
+                <HStack mb="1rem">
                 {
                     itemInfo.product_colors.map((color:any, i:number) => (
                     <Tooltip key={i} label={color.colour_name}>
@@ -51,6 +53,12 @@ const Product= ({itemInfo}:any) => {
                     ))
                 }
                 </HStack>
+                <Text fontWeight="bold"mb="8px">Tags</Text>
+                {
+                    itemInfo.tag_list.map((tag:string, i:number) => (
+                        <Text key={i} as="span" bg="violet" p="5px" mx="5px" borderRadius="10px" fontWeight="bold" color="white">{tag}</Text>
+                    ))
+                }
             </Box>
         </Box>
     </>

@@ -4,6 +4,7 @@ export interface Product {
   image_link?:string;
   name?:string;
   price?: number | string;
+  price_sign?: string;
   rating?:number | string;
   brand?:string;
   product_type?:string;

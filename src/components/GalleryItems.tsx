@@ -1,9 +1,11 @@
-import { Box, Text } from '@chakra-ui/layout'
-import { Product } from '../interfaces/products'
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 const Item = dynamic(() => import('./Item'))
+
 import { useAppContext } from '../hooks/useAppContext'
+import { Product } from '../interfaces/products'
+import { GalleryLoader } from './GalleryLoader'
+import { Box } from '@chakra-ui/layout'
 
 const GalleryItems= () => {
   const [itemsArr, setItemsArr] = useState([]);
@@ -17,23 +19,20 @@ const GalleryItems= () => {
        setItemsArr(items);
        console.log(state.urlFetch);
      } catch(err) {
-       console.log('An Error happened fetching the data');
+       throw new Error('Server Error');
      }
     })()
   }, [state.urlFetch])
   console.log(itemsArr.length);
   return (
-    <Box bg="pink" gap={3} display="grid" gridTemplateColumns="repeat(3, 1fr)">
+    <Box gap={3} display="grid" gridTemplateColumns="repeat(3, 1fr)" w="100%">
     {
       itemsArr.length != 0 
       ?itemsArr?.map((product: Product) => (
-      <Box key={product.id} >
-        <Item {...product}/>
-      </Box>
+        <Item key={product.id} {...product}/>
       ))
-      : <Box><Text>Loading...</Text></Box>
+      : <GalleryLoader/>
     }
-    {console.log('DONE MOUNTING')}
     </Box>
   )
 }

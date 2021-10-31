@@ -12,8 +12,8 @@ const Home = () => {
     <Head>
       <title>Home | Makeup eCommerce</title>
     </Head>
-    <Box display="flex" alignItems="center" flexDir="column" w="100%" maxW="100vw" minH="100vh" px="2rem" pt="1rem  ">
-      <Box display="flex" justifyContent="space-evenly">
+    <Box bg="#e3cbe0" display="flex" alignItems="center" flexDir="column" w="100%" maxW="100vw" minH="100vh" px="2rem" pt="1rem  ">
+      <Box display="flex" justifyContent="space-evenly" mb="1.5rem">
         <RangeForm type="price"/>
         <SearchForm />
         <RangeForm type="rate"/>

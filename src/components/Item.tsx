@@ -5,21 +5,21 @@ import { Product } from '../interfaces/products';
 import {BsStar} from 'react-icons/bs'
 import Link from 'next/link'
 
-const  Item = ({ image_link, name, price, rating, id}:Product) => {
+const  Item = ({ image_link, name, price, price_sign, rating, id}:Product) => {
     const handleImgError = (e:any) => {
       e.currentTarget.onerror = null;
       e.currentTarget.src = '/default-item.svg'
     }
     return (
     <Link href={`products/${id}`} passHref={true}>
-      <Box h="20rem" display="grid" gridTemplateRows="70% 30%" cursor="pointer">
+      <Box _hover={{translateZ: '2rem', transform: 'scale(1.1)', boxShadow: '0 0 5px gray'}} borderRadius="5px" bg="white" h="20rem" display="grid" gridTemplateRows="70% 30%" cursor="pointer">
         <Box>
           <Image src={image_link} onError={(e) => handleImgError(e)} alt={name} h="100%" w="100%" objectFit="cover"/>
         </Box>
-        <Box px="10px" pos="relative">
-          <Heading pos="relative" h="3.2rem" top="5px" as="h3" fontSize="20px" mb="5px">{name}</Heading>
-          <Text pos="relative" bottom ="0px" display="flex" justifyContent="space-between">
-            <Text as="span" >{price}&nbsp;$</Text>
+        <Box px="10px">
+          <Heading h="3.2rem" top="5px" as="h3" fontSize="20px" mb="5px">{name}</Heading>
+          <Text display="flex" justifyContent="space-between">
+            <Text as="span" >{price}&nbsp;{price_sign}</Text>
             <Text alignItems="center" display="flex" as="span">{rating ?rating :'No rate'}&nbsp;{rating && <BsStar/>}</Text>
           </Text>
         </Box>

@@ -27,10 +27,8 @@ const Product= ({itemInfo}:any) => {
             <Text as="span" bg="gray.200" p="10px" left="1rem" display="flex" top="1rem" pos="absolute" cursor="pointer">Homepage&nbsp;<FaHome/> </Text>
         </Link>
         <Box display="flex" h="100vh" bg="blue" w="100vw" p="1rem" alignItems="center">
-            <Box>
-                <Box as="figcaption">
-                    <Image boxSize="30rem" objectFit="fill" src={itemInfo.image_link} onError={(e) => handleImgError(e)} alt={itemInfo.name}/>
-                </Box>
+            <Box as="figcaption" w="40rem" h="30rem" pos="relative">
+                <Image w="100%" h="100%" objectFit="cover" src={itemInfo.image_link} onError={(e) => handleImgError(e)} alt={itemInfo.name}/>
             </Box>
             <Box px="1rem">
                 <Box>

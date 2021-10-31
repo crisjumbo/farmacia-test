@@ -17,13 +17,11 @@ const GalleryItems= () => {
        const res = await fetch(state.urlFetch);
        const items = await res.json();
        setItemsArr(items);
-       console.log(state.urlFetch);
      } catch(err) {
        throw new Error('Server Error');
      }
     })()
   }, [state.urlFetch])
-  console.log(itemsArr.length);
   return (
     <Box gap={3} display="grid" gridTemplateColumns="repeat(3, 1fr)" w="100%">
     {

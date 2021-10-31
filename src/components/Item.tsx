@@ -6,11 +6,15 @@ import {BsStar} from 'react-icons/bs'
 import Link from 'next/link'
 
 const  Item = ({ image_link, name, price, rating, id}:Product) => {
+    const handleImgError = (e:any) => {
+      e.currentTarget.onerror = null;
+      e.currentTarget.src = '/default-item.svg'
+    }
     return (
     <Link href={`products/${id}`} passHref={true}>
       <Box h="20rem" display="grid" gridTemplateRows="70% 30%" cursor="pointer">
         <Box>
-          <Image src={'hola'} alt={name} h="100%" w="100%" objectFit="cover"/>
+          <Image src={image_link} onError={(e) => handleImgError(e)} alt={name} h="100%" w="100%" objectFit="cover"/>
         </Box>
         <Box px="10px" pos="relative">
           <Heading pos="relative" h="3.2rem" top="5px" as="h3" fontSize="20px" mb="5px">{name}</Heading>

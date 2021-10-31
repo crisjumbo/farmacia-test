@@ -10,7 +10,6 @@ export const useInitialState = () => {
             ...state,
             [`${_payload.name}`]: _payload.value,
         })
-        console.log(_payload.value);
     }
     
     const searchPriceRange = (_payload: RangeNum) => {
@@ -40,7 +39,6 @@ export const useInitialState = () => {
                 {
                 urlFetch = urlFetch.concat(`?${varArr[i]}=${valArr[i]?.toString()}`);
                 flag = 0;
-                console.log(urlFetch)
                 }
             else if (valArr[i] && !flag)
                 urlFetch = urlFetch.concat(`&${varArr[i]}=${valArr[i]}`);
@@ -58,7 +56,7 @@ export const useInitialState = () => {
                 urlFetch,
             })
         } catch(err) {
-            console.log('Error fetching new Url')
+            throw new Error('Erro: URL failure')
         }
     }
     

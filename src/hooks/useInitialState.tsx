@@ -1,6 +1,6 @@
+import {RangeNum} from 'src/interfaces/products'
+import { initialState } from 'src/initialState'
 import { useState } from 'react'
-import {RangeNum} from '../interfaces/products'
-import { initialState } from '../initialState';
 
 export const useInitialState = () => {
     const [state, setState] = useState(initialState);

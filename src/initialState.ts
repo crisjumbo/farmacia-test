@@ -1,4 +1,4 @@
-import { InitialState } from "./interfaces/products";
+import { InitialState } from "src/interfaces/products";
 
 export const initialState: InitialState = {
     brand: '',

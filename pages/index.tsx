@@ -1,10 +1,10 @@
-import {Box} from '@chakra-ui/layout'
-import React from 'react'
-import { SearchForm } from '../src/components/SearchForm'
-import { RangeForm } from '../src/components/RangeForm'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-const GalleryItems = dynamic(() => import('../src/components/GalleryItems'))
+const GalleryItems = dynamic(() => import('src/components/GalleryItems'))
+
+import { SearchForm } from 'src/components/SearchForm'
+import { RangeForm } from 'src/components/RangeForm'
+import {Box} from '@chakra-ui/layout'
 
 const Home = () => {
   return (

@@ -1,6 +1,6 @@
 import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react"
+import { tempArr } from 'src/utils/const/variables'
 import { Box } from "@chakra-ui/layout"
-import { tempArr } from '../utils/const/variables'
 
 export const GalleryLoader= () => {
     return (

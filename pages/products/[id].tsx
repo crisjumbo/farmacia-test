@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
-import {useRouter} from 'next/router'
-import {Box, Text, HStack, Heading} from '@chakra-ui/layout'
-import { Image } from '@chakra-ui/image'
-import { Tooltip } from '@chakra-ui/tooltip'
-import { Button } from '@chakra-ui/button'
-import {FaHome} from 'react-icons/fa'
 import Head from 'next/head'
 import Link from 'next/link'
+
+import {Box, Text, HStack, Heading} from '@chakra-ui/layout'
+import { Tooltip } from '@chakra-ui/tooltip'
+import { Button } from '@chakra-ui/button'
+import { Image } from '@chakra-ui/image'
+import {FaHome} from 'react-icons/fa'
+import {useRouter} from 'next/router'
 
 
 

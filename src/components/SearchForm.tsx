@@ -1,11 +1,10 @@
-import React from 'react'
-import {Box} from '@chakra-ui/layout'
+import { brands, productTypes } from 'src/utils/const/variables'
+import { useAppContext } from 'src/hooks/useAppContext'
 import { Button } from '@chakra-ui/button'
-import { Input } from '@chakra-ui/input'
-import { BsSearch } from 'react-icons/bs'
-import { brands, productTypes } from '../utils/const/variables'
 import { Select } from '@chakra-ui/select'
-import { useAppContext } from '../hooks/useAppContext'
+import { BsSearch } from 'react-icons/bs'
+import { Input } from '@chakra-ui/input'
+import { Box } from '@chakra-ui/layout'
 
 export const SearchForm= () => {
   const {state, searchWord, switcher}:any = useAppContext();

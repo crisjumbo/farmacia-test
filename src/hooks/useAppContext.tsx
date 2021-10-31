@@ -1,7 +1,7 @@
-import React, { FC, ReactChildren } from 'react'
+import { FC, createContext, useContext} from 'react'
 import {useInitialState} from './useInitialState'
 
-const AppContext = React.createContext({})
+const AppContext = createContext({})
 
 export const AppContextProvider: FC = ({children}) => {
     const initialState = useInitialState();
@@ -9,7 +9,7 @@ export const AppContextProvider: FC = ({children}) => {
 }
 
 export const useAppContext = () => {
-   const stateApp = React.useContext(AppContext);
+   const stateApp = useContext(AppContext);
    
    if (!stateApp)
        throw new Error('Out of context');

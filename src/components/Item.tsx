@@ -1,9 +1,10 @@
 import React from 'react'
-import {Box, Heading, Text} from '@chakra-ui/layout';
-import {Image} from '@chakra-ui/image'
-import { Product } from '../interfaces/products';
-import {BsStar} from 'react-icons/bs'
 import Link from 'next/link'
+
+import {Box, Heading, Text} from '@chakra-ui/layout';
+import { Product } from 'src/interfaces/products';
+import {Image} from '@chakra-ui/image'
+import {BsStar} from 'react-icons/bs'
 
 const  Item = ({ image_link, name, price, price_sign, rating, id}:Product) => {
     const handleImgError = (e:any) => {

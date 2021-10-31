@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 const Item = dynamic(() => import('./Item'))
 
-import { useAppContext } from '../hooks/useAppContext'
-import { Product } from '../interfaces/products'
+import { useAppContext } from 'src/hooks/useAppContext'
+import { Product } from 'src/interfaces/products'
 import { GalleryLoader } from './GalleryLoader'
 import { Box } from '@chakra-ui/layout'
 

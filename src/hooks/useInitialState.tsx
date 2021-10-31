@@ -64,7 +64,6 @@ export const useInitialState = () => {
   const switcher = async () => {
     try {
       const urlFetch: string = await urlMaker();
-      console.log(urlFetch);
       await setState({
         ...state,
         urlFetch,

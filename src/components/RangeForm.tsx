@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useAppContext } from "src/hooks/useAppContext";
 import { FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";

@@ -29,6 +29,7 @@ const Product = ({ itemInfo }: any) => {
           p="10px"
           left="1rem"
           display="flex"
+          flexWrap="wrap"
           top="1rem"
           pos="absolute"
           cursor="pointer"
@@ -72,10 +73,10 @@ const Product = ({ itemInfo }: any) => {
           <Text fontWeight="bold" mb="5px">
             Colors:
           </Text>
-          <HStack mb="1rem">
+          <HStack mb="1rem" flexWrap="wrap">
             {itemInfo.product_colors.map((color: any, i: number) => (
               <Tooltip key={i} label={color.colour_name}>
-                <Button bg={color.hex_value} borderRadius="50%" />
+                <Button m="5px" bg={color.hex_value} borderRadius="50%" />
               </Tooltip>
             ))}
           </HStack>

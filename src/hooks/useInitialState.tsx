@@ -1,6 +1,7 @@
 import { RangeNum } from "src/interfaces/products";
 import { initialState } from "src/initialState";
 import { useState } from "react";
+import { urlMaker } from "src/utils/lib/urlMaker";
 
 export const useInitialState = () => {
   const [state, setState] = useState(initialState);
@@ -28,42 +29,9 @@ export const useInitialState = () => {
     });
   };
 
-  const urlMaker = () => {
-    const varArr = [
-      "name",
-      "brand",
-      "product_type",
-      "price_greater_than",
-      "price_less_than",
-      "rating_greater_than",
-      "rating_less_than",
-    ];
-    const valArr = [
-      state.name,
-      state.brand,
-      state.productType,
-      state.priceRangeFrom,
-      state.priceRangeTo,
-      state.rateRangeFrom,
-      state.rateRangeTo,
-    ];
-    let urlFetch = process.env.NEXT_PUBLIC_ENDPOINT || "";
-    let i = 0;
-    let flag = 1;
-    while (i < valArr.length) {
-      if (valArr[i] && flag) {
-        urlFetch = urlFetch.concat(`?${varArr[i]}=${valArr[i]?.toString()}`);
-        flag = 0;
-      } else if (valArr[i] && !flag)
-        urlFetch = urlFetch.concat(`&${varArr[i]}=${valArr[i]}`);
-      i++;
-    }
-    return urlFetch;
-  };
-
   const switcher = async () => {
     try {
-      const urlFetch: string = await urlMaker();
+      const urlFetch: string = await urlMaker(state);
       await setState({
         ...state,
         urlFetch,
